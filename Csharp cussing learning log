@@ -1,0 +1,233 @@
+// See https://aka.ms/new-console-template for more information
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Metadata.Ecma335;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Learning
+{
+    class Program
+    {
+        static void Main(string[] args ) 
+        {
+            int[] lastdate = { 2023, 08, 14 };
+            Console.WriteLine("started Learning 2023-08-14");
+            Console.WriteLine("learning ongoing by: " + lastdate[0] + "-" + lastdate[1] + "-" + lastdate[2]);
+            Console.Write("Enter Current Year: ");
+            bool yearbool = false;
+            while (yearbool == false)
+            {
+                string year = Console.ReadLine();
+                Int32.TryParse(year, out lastdate[0]);
+                if (lastdate[0] <= 2029 && lastdate[0] >= 2023)
+                {
+                    yearbool = true;
+                }
+                else 
+                {
+                    Console.WriteLine("You fool! That can't be possible... Enter the bloody year!!");
+                }
+            }
+            Console.Write("Enter Month: ");
+            bool monthbool = false;
+            while (monthbool == false)
+            {
+
+                string month = Console.ReadLine();
+                Int32.TryParse(month, out lastdate[1]);
+                if (1 <= lastdate[1] && lastdate[1] <= 12)
+                {
+                    monthbool = true;
+                }
+                else
+                {
+                    Console.WriteLine("C'mon lad! stop playing around... What's the month?!");
+                }
+            }
+            Console.Write("Enter day: ");
+            bool daybool = false;
+            while (daybool == false)
+            {
+                string day = Console.ReadLine();
+                Int32.TryParse(day, out lastdate[2]);
+                if (1 <= lastdate[2] && lastdate[2]<=31)
+                {
+                    if (lastdate[1]==1 || lastdate[1]==3 || lastdate[1]==5 || lastdate[1]==7 || lastdate[1]==8 || lastdate[1]==10 || lastdate[1]==12)
+                    {
+                        daybool = true;
+                    }
+                    else
+                    {
+                        if (1 <= lastdate[2] && lastdate[2] <= 30)
+                        {
+                            if (lastdate[1] == 4 || lastdate[1] == 6 || lastdate[1] == 9 || lastdate[1] == 11)
+                            {
+                                daybool = true;
+                            }
+                        }
+                        else
+                        {
+                            if (1 <= lastdate[2] && lastdate[2] <= 28)
+                            {
+                                if (lastdate[1] == 2)
+                                {
+                                    daybool = true;
+                                }
+                            }
+                            else
+                            {
+                                if (1 <= lastdate[2] && lastdate[2] <= 28)
+                                {
+                                    if (lastdate[1] == 2)
+                                    {
+                                        if ((lastdate[0] % 4) == 0)
+                                        {
+                                            daybool = true;
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("You're really stoobid arent'ya? so many tries and you can't put a date right...");
+                    Console.WriteLine("Try again and be sure to put it right");
+                }
+            }
+            //Console.WriteLine(variable. ); select useful modes for variables
+            if (lastdate[1]==2023) 
+            // && and
+            // ! = is not (condition)
+            // || = OR
+            // == Equal
+            // != Different
+            
+            {
+                Console.WriteLine("Still learning to walk, edit this again next year to show your skills");
+            }
+
+            //int[] arraynum = { 1, 2, 3 }; // 3 given values
+            //string[] arraystr = new string [3]; // 3 not given values
+
+
+            //remove comment to execute method Lrn()
+            
+            bool i = false;
+            string lrndate;
+            while (i == false) 
+            {
+                char yesno;
+                Console.WriteLine("Still Learning?");
+                Console.Write("Y/N: ");
+                yesno = Console.ReadKey().KeyChar;
+                switch (yesno) 
+                {
+                    
+                    case 'y':
+                        Console.Write("Please Enter today's date: YYYY-MM-DD (Yes, again)");
+
+                        lrndate = Console.ReadLine();
+                        Lrn(lrndate);
+                        i = true;
+                        break;
+                    case 'Y':
+                        Console.Write("Please Enter today's date: YYYY-MM-DD (Yes, again)");
+                        lrndate = Console.ReadLine();
+                        Lrn(lrndate);
+                        i = true;
+                        break;
+                    case 'n':
+                        Console.WriteLine("Very well lad, go on and try C++!"); ;
+                        i = true;
+                        break;
+                    case 'N':
+                        Console.WriteLine("Very well lad, go on and try C++!"); ;
+                        i = true;
+                        break;
+                    default:
+                        Console.WriteLine("ERROR, Please say Y or N you fool!");
+                        i = false;
+                        break;
+                }
+
+            }
+            
+            
+            Console.ReadLine();
+        }
+        // :: ADDITIONAL METHODS OR FUNCTIONS ::
+        // Can call and execute other methods by placing
+        // inside Main() and adding the value to the 
+        // variable or parameter assigned 
+        // MORE EXAMPLES BELOW
+        static void Lrn(string date) // add parameters between parenthesis 
+                                               //variable: string date. Lrn() code won't be executed
+                                               //until a value is assigned in Main method code   
+        {
+            Console.WriteLine("Learning Methods Today: " + date);// to print 
+                                                                 //value called in Main() method
+            Console.ReadLine();
+
+        }
+        
+
+        // :: USING RETURN VALUES ::
+        // Type of value that will be returned
+        // in this case, an integer
+        // as the cube of the number stored
+
+
+        static int cube(int num)
+        {
+            int result = num * num * num;
+            return result; //return will send the variable
+                          //value to where the code is
+                          //executed inside Main()
+                          //can even return arrays
+                          // static result[] cube
+        }
+
+        // create a day of the week method that
+        // says what day of the week you're 
+        // learning using switch function
+        static string curlrnday(int day) 
+        {
+            string daynam;
+            switch (day)
+            {
+                case 0:
+                    daynam = "monday";
+                    break;
+                case 1:
+                    daynam = "tuesday";
+                    break;
+                case 2:
+                    daynam = "wednesday";
+                    break;
+                case 3:
+                    daynam = "thursday";
+                    break;
+                case 4:
+                    daynam = "friday";
+                    break;
+                case 5:
+                    daynam = "saturday";
+                    break;
+                case 6:
+                    daynam = "sunday";
+                    break;
+                default:
+                    daynam = "EORRR";
+                    break;
+            }
+            return daynam;
+
+        }
+        
+    }
+}
